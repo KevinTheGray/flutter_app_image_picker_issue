@@ -13,8 +13,9 @@ class _MyHomePageState extends State<MyHomePage> {
   File _image;
 
   Future getImage() async {
+    print('awaiting pick image...');
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
-
+    print('finished awaiting pick image...');
     setState(() {
       _image = image;
     });
@@ -22,6 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print(_image.toString());
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
